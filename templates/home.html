@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title notification">Read Records</h1>
+    <a href="" class="button is-info" style="margin-left: 1300px;">+  Create Records</a>
+
+    <table class="table is-fullwidth">
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Action</th>
+
+        </tr>
+
+        {% for people in items %}
+        <tr>
+
+            <td>{{ people.id }}</td>
+            <td>{{ people.name }}</td>
+            <td>{{ people.description }}</td>
+            <td>{{ people.price }}</td>
+            <td>{{ people.category }}</td>
+            <td> <a href="{% url 'shop_edit' people.id %}" class="button is-info">
+                <i class="fa-solid fa-pen-to-square"></i>
+                    Edit
+            </a>
+                <a href="{% url 'article_delete' people.id %}" class="button is-danger">
+                    <button class="delete" ></button>
+                 Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+
+</body>
+</html>

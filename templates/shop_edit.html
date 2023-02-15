@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+        integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6">
+                <h1 class="title has-text-centered notification">Add New Items</h1>
+
+
+                <form method="post" action="{% url 'home' %}" enctype="multipart/form-data">
+                    {% csrf_token %} 
+                    {% for items in form %}
+                    <label class="label">{{items.label}}</label>
+                    {{items}}
+                    {% endfor %}
+                    <br> <br>
+                    <button class="button is-link" type="submit">Add Student</button>
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
